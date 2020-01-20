@@ -30,6 +30,21 @@ Router.route('/floor')
     })
 
     Router.route('/floor/:id')
+         .put(async function (req, res) {
+        try {
+
+
+            let result = await FloorCtrl.updateFloorById(req.params.id, req.body)
+            res.json(result)
+            
+
+        } catch (err) {
+            console.log("Error in /block update", err)
+            res.status(400).json({ "message": "Problem in updating floor." });
+        }
+    })
+
+
         .delete(async function (req, res) {
         try {
             let buildingId = req.query.buildingId;

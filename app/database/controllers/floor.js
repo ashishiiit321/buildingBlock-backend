@@ -51,6 +51,19 @@ function deleteFloors(id) {
     })
 }
 
+function updateFloorById(id, newData) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const result = await Floor.findByIdAndUpdate(id, { "$set": newData } , {new: true})
+            resolve(result)
+
+        } catch (err) {
+            reject(err)
+        }
+
+    });
+}
+
 
 //
 
@@ -58,5 +71,6 @@ module.exports = {
     createFloor,
     getFloor,
    deleteFloors,
-    deleteFloorById
+    deleteFloorById,
+    updateFloorById
 };

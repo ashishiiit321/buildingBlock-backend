@@ -29,7 +29,6 @@ Router.route('/building')
                var  query = req.query
             
             let response = await BuildingCtrl.getBuilding(query);
-            console.log(response)
             res.status(200).json(response)
 
 
