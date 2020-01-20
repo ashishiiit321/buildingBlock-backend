@@ -24,8 +24,12 @@ Router.route('/building')
 
        .get(async function(req, res) {
         try {
+            console.log("req.query",req.query)
+            if(req.query)
+               var  query = req.query
             
-            let response = await BuildingCtrl.getBuilding();
+            let response = await BuildingCtrl.getBuilding(query);
+            console.log(response)
             res.status(200).json(response)
 
 
@@ -37,9 +41,10 @@ Router.route('/building')
     })
 
   Router.route('/building/:id')
+     
+
         .delete(async function (req, res) {
         try {
-
 
              let result = await BuildingCtrl.deleteBuildingById(req.params.id)
 

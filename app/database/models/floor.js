@@ -6,6 +6,7 @@ const floorSchema = new Schema({
 	buildingId: Schema.Types.ObjectId,
     floorName: {type: String},
    	description: {type: String},
+   	noOfHouse: {type: String}
     
 
 
